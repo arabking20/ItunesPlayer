@@ -38,14 +38,12 @@ open class ClassicFragment : Fragment() {
         )
         initObservables()
         initViews()
-        Log.d("binding", "onCreateView: ${binding.root}")
         return binding.root
     }
 
     open fun initViews() {
         adapter = ClassicAdapter(emptyList()){
         }
-        Log.d("test", "initViews: $adapter")
         binding.classicMusic.adapter=adapter
         binding.classicMusic.layoutManager= LinearLayoutManager(context)
     }

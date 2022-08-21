@@ -1,103 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_margin="4dp">
 
+<!--    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:id="@+id/swiperefresh"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent">-->
 
+<!--        <ListView-->
+<!--            android:id="@android:id/list"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/tabs_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        tools:ignore="MissingConstraints" />
-
+<!--    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_margin="10sp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.024"
-        android:baselineAligned="false"
-        android:background="@color/white">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:gravity="left"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/home_banner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                tools:src="@drawable/ic_launcher_foreground" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/song_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="@string/Classic" />
-
-            <TextView
-                android:id="@+id/song_desc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="@string/Classic" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/song_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.25"
-                tools:text="@string/Pop" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/tabs_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="152dp" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/home_banner"
+            android:layout_width="100dp"
+            android:layout_height="137dp"
+            android:layout_gravity="bottom"
+            android:contentDescription="@string/album_image"
+            tools:src="@drawable/ic_launcher_foreground"/>
+        <TextView
+            android:id="@+id/song_title"
+            android:layout_width="127dp"
+            android:layout_height="141dp"
+            android:layout_gravity="bottom"
+            tools:text="Titles"/>
+        <TextView
+            android:id="@+id/artist_name"
+            android:layout_width="87dp"
+            android:layout_height="141dp"
+            android:layout_gravity="bottom"
+            tools:text="Artist Name"/>
+        <TextView
+            android:id="@+id/song_price"
+            android:layout_width="85dp"
+            android:layout_height="140dp"
+            android:layout_gravity="bottom"
+            tools:text="Prices"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/classicFragmentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</androidx.cardview.widget.CardView>

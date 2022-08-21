@@ -2,5 +2,7 @@
     <string name="app_name">ItunesPlayer</string>
     <string name="Pop">Pop</string>
     <string name="Classic">Classic</string>
+    <string name="Artist">ArtistName</string>
     <string name="Rock">Rock</string>
+    <string name="album_image">Album Image</string>
 </resources>

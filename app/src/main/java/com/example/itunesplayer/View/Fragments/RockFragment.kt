@@ -39,19 +39,22 @@ open class RockFragment: Fragment() {
         initViews()
         return binding.root
     }
-     open fun initObservables() {
-        viewModel?.allMusic()
-        viewModel?.rockMusic?.observe(viewLifecycleOwner, Observer {
-            updatedAdapter(it)
-        })
 
-    }
 
      open fun initViews() {
         adapter = RockAdapter(emptyList()){
         }
         binding.rockMusic.adapter=adapter
         binding.rockMusic.layoutManager=LinearLayoutManager(context)
+    }
+
+
+    open fun initObservables() {
+        viewModel.allMusic()
+        viewModel.rockMusic.observe(viewLifecycleOwner, Observer {
+            updatedAdapter(it)
+        })
+
     }
 
      open fun updatedAdapter(dataSet: List<SongItems>) {

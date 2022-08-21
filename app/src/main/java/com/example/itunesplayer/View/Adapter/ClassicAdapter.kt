@@ -1,8 +1,12 @@
 package com.example.itunesplayer.View.Adapter
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.itunesplayer.Model.SongItems
 import com.example.itunesplayer.R
@@ -16,14 +20,21 @@ class ClassicAdapter (var classicList:List<SongItems>,
         RecyclerView.ViewHolder(binding.root){
 
         fun onBinding(songItem: SongItems, openData:(SongItems)->Unit){
-            binding.songTitle.text = songItem.artistName
-            binding.songDesc.text = songItem.previewUrl
+            binding.artistName.text = songItem.artistName
+            binding.songTitle.text = songItem.trackName
             binding.songPrice.text = songItem.trackPrice
             Picasso.get()
                 .load(songItem.artworkUrl60)
                 .placeholder(R.drawable.ic_baseline_music_video_24)
                 .error(R.drawable.ic_baseline_music_video_24)
                 .into(binding.homeBanner)
+
+            binding.root.setOnClickListener{
+                val intent = Intent()
+                intent.action = Intent.ACTION_VIEW
+                intent.data = Uri.parse(songItem.previewUrl)
+                startActivity(binding.root.context,intent,null)
+            }
         }
 
     }
@@ -43,12 +54,11 @@ class ClassicAdapter (var classicList:List<SongItems>,
     }
 
     override fun getItemCount(): Int {
-        Log.d("Hi", "getItemCount:${classicList.size}")
         return classicList.size
     }
+    @SuppressLint("NotifyDataSetChanged")
     fun updatedList(response: List<SongItems>){
         classicList = response
-        Log.d("musicList", "updateList:${response} ")
         notifyDataSetChanged()
     }
 

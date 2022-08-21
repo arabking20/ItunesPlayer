@@ -40,14 +40,12 @@ open class PopFragment: Fragment() {
         )
         initObservables()
         initViews()
-        Log.d("binding", "onCreateView: ${binding.root}")
         return binding.root
     }
 
     open fun initViews() {
         adapter = PopAdapter(emptyList()){
         }
-        Log.d("test", "initViews: $adapter")
         binding.popMusic.adapter=adapter
         binding.popMusic.layoutManager= LinearLayoutManager(context)
     }
